@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMeeting", "SmartMeeting\SmartMeeting.csproj", "{91DE2F45-0B80-455C-854D-2B77C8867FDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit.FaceTracking", "Microsoft.Kinect.Toolkit.FaceTracking\Microsoft.Kinect.Toolkit.FaceTracking.csproj", "{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Release|Win32.ActiveCfg = Release|Any CPU
+		{91DE2F45-0B80-455C-854D-2B77C8867FDA}.Release|x64.ActiveCfg = Release|Any CPU
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|Win32.Build.0 = Debug|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|x64.ActiveCfg = Debug|x64
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Debug|x64.Build.0 = Debug|x64
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|Any CPU.ActiveCfg = Release|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|Win32.ActiveCfg = Release|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|Win32.Build.0 = Release|Win32
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|x64.ActiveCfg = Release|x64
+		{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
