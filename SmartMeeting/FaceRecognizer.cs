@@ -106,7 +106,7 @@ namespace USC.Robotics.SmartMeeting
                     }
                 }
             }
-            return "Sanmeet" ;
+            return "Unknown" ;
         }
     }
 }

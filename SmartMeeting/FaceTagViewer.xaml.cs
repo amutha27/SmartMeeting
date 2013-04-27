@@ -31,7 +31,7 @@ namespace USC.Robotics.SmartMeeting
             new PropertyMetadata(
                 null, (o, args) => ((FaceTagViewer)o).OnSensorChanged((KinectSensor)args.OldValue, (KinectSensor)args.NewValue)));
 
-        private const uint MaxMissedFrames = 50;
+        private const uint MaxMissedFrames = 200;
 
         private readonly Dictionary<int, SkeletonFaceTracker> trackedSkeletons = new Dictionary<int, SkeletonFaceTracker>();
 
@@ -238,6 +238,14 @@ namespace USC.Robotics.SmartMeeting
         {
             this.trackedSkeletons[trackingId].Dispose();
             this.trackedSkeletons.Remove(trackingId);
+            Dictionary<Skeleton, string> temp = new Dictionary<Skeleton, string>(Global.trackedPeople);
+            foreach (var s in temp.Keys)
+            {
+                if (s.TrackingId == trackingId)
+                {
+                    Global.trackedPeople.Remove(s);
+                }
+            }
         }
 
         private void ResetFaceTracking()
