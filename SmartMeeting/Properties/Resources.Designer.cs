@@ -70,6 +70,16 @@ namespace USC.Robotics.SmartMeeting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon meeting {
+            get {
+                object obj = ResourceManager.GetObject("meeting", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No ready Kinect found!.
         /// </summary>
         internal static string NoKinectReady {
@@ -103,18 +113,14 @@ namespace USC.Robotics.SmartMeeting.Properties {
         ///      &lt;item&gt;
         ///        &lt;tag&gt;START&lt;/tag&gt;
         ///        &lt;one-of&gt;
-        ///          &lt;item&gt;This is a test&lt;/item&gt;
         ///          &lt;item&gt;Hi&lt;/item&gt;
-        ///        &lt;/one-of&gt;
-        ///      &lt;/item&gt;
-        ///    &lt;/one-of&gt;
-        ///  &lt;/rule&gt;
-        ///  &lt;rule id=&quot;gameRule&quot; scope=&quot;public&quot;&gt;
-        ///    &lt;one-of&gt;
-        ///      &lt;item&gt;
-        ///        &lt;tag&gt;RULESENABLE&lt;/tag&gt;
-        ///        &lt;one-of&gt;
-        ///          &lt;item&gt;enable rules&lt;/item&gt; [rest of string was truncated]&quot;;.
+        ///          &lt;item&gt;What&apos;s up?&lt;/item&gt;
+        ///          &lt;item&gt;How are you?&lt;/item&gt;
+        ///          &lt;item&gt;Good&lt;/item&gt;
+        ///          &lt;item&gt;Did you do robotics project?&lt;/item&gt;
+        ///          &lt;item&gt;yes&lt;/item&gt;
+        ///          &lt;item&gt;I&apos;m making Smart Meeting!&lt;/item&gt;
+        ///          &lt;item&gt;Wha [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SpeechGrammar {
             get {

@@ -30,23 +30,12 @@ namespace USC.Robotics.SmartMeeting
         private WriteableBitmap colorImageWritableBitmap;
         private byte[] colorImageData;
         private ColorImageFormat currentColorImageFormat = ColorImageFormat.Undefined;
-        private Stream audioStream;
         private KinectSensor kinect;
 
         /// <summary>
         /// Name of speech grammar corresponding to speech acceptable during welcome screen.
         /// </summary>
         private const string WelcomeSpeechRule = "welcomeRule";
-
-        /// <summary>
-        /// Name of speech grammar corresponding to speech acceptable during game play.
-        /// </summary>
-        private const string GameSpeechRule = "gameRule";
-
-        /// <summary>
-        /// Name of speech grammar corresponding to speech acceptable during game end experience.
-        /// </summary>
-        private const string GameEndSpeechRule = "gameEndRule";
 
         /// <summary>
         /// Speech recognizer used to detect voice commands issued by application users.
@@ -57,21 +46,6 @@ namespace USC.Robotics.SmartMeeting
         /// Speech grammar used during welcome screen.
         /// </summary>
         private Grammar welcomeGrammar;
-
-        /// <summary>
-        /// Speech grammar used during game play.
-        /// </summary>
-        private Grammar gameGrammar;
-
-        /// <summary>
-        /// Speech grammar used after a game ends, to control starting a new one.
-        /// </summary>
-        private Grammar gameEndGrammar;
-
-        /// <summary>
-        /// true if placement rules are being enforced. false if players can play out of turn and in any board space.
-        /// </summary>
-        private bool rulesEnabled = true;
 
         /// <summary>
         /// Create a grammar from grammar definition XML file.
@@ -93,31 +67,6 @@ namespace USC.Robotics.SmartMeeting
 
             return grammar;
         }
-
-        /// <summary>
-        /// Enable specified grammar and disable all others.
-        /// </summary>
-        /// <param name="grammar">
-        /// Grammar to be enabled. May be null to disable all grammars.
-        /// </param>
-        private void EnableGrammar(Grammar grammar)
-        {
-            if (null != this.gameGrammar)
-            {
-                this.gameGrammar.Enabled = grammar == this.gameGrammar;
-            }
-
-            if (null != this.welcomeGrammar)
-            {
-                this.welcomeGrammar.Enabled = grammar == this.welcomeGrammar;
-            }
-
-            if (null != this.gameEndGrammar)
-            {
-                this.gameEndGrammar.Enabled = grammar == this.gameEndGrammar;
-            }
-        }
-       
 
         public MainWindow()
         {
@@ -180,6 +129,7 @@ namespace USC.Robotics.SmartMeeting
                     // Behavior here is to just eat the exception and assume
                     // another notification will come along if a sensor
                     // comes back.
+                    Global.StatusBarText.Text = "Error while starting Kinect Sensor";
                 }
             }
         }
@@ -222,18 +172,29 @@ namespace USC.Robotics.SmartMeeting
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Create and configure speech grammars and recognizer
-            this.welcomeGrammar = CreateGrammar(WelcomeSpeechRule);
-            this.gameGrammar = CreateGrammar(GameSpeechRule);
-            this.gameEndGrammar = CreateGrammar(GameEndSpeechRule);
-            this.EnableGrammar(this.welcomeGrammar);
-            this.speechRecognizer = SpeechRecognizer.Create(new[] { welcomeGrammar, gameGrammar, gameEndGrammar });
-
-
-            if (null != speechRecognizer)
+            //Assign statusbar text box to globals
+            Global.StatusBarText = statusBarText;
+            Global.StatusBarText.Text = "Starting...";
+            if (kinect == null)
             {
-                this.speechRecognizer.SpeechRecognized += SpeechRecognized;
-                Global.audioStream = this.speechRecognizer.Start(kinect.AudioSource);
+                Global.StatusBarText.Text = "No Kinect Sensor were found";
+            }
+            else
+            {
+
+
+                // Create and configure speech grammars and recognizer
+                this.welcomeGrammar = CreateGrammar(WelcomeSpeechRule);
+                this.speechRecognizer = SpeechRecognizer.Create(new[] { welcomeGrammar });
+
+
+                if (null != speechRecognizer)
+                {
+                    this.speechRecognizer.SpeechRecognized += SpeechRecognized;
+                    Global.audioStream = this.speechRecognizer.Start(kinect.AudioSource);
+
+                }
+                Global.StatusBarText.Text = "Ready";
             }
         }
         /// <summary>
@@ -247,6 +208,7 @@ namespace USC.Robotics.SmartMeeting
         /// </param>
         private void SpeechRecognized(object sender, SpeechRecognizerEventArgs e)
         {
+            Global.StatusBarText.Text = Global.personSpeaking + " said something";
             txtTranscript.Text += Global.personSpeaking+": " + e.Phrase+System.Environment.NewLine;
             txtTranscript.ScrollToEnd();
         }

@@ -389,6 +389,7 @@ namespace USC.Robotics.SmartMeeting
                             
                             if (faceTag != null)
                             {
+                                Global.StatusBarText.Text = "Found " + faceTag + "!";
                                 if (Global.trackedPeople.ContainsKey(skeletonOfInterest))
                                     Global.trackedPeople[skeletonOfInterest] = faceTag;
                                 else

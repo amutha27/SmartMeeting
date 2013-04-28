@@ -10,8 +10,9 @@ namespace USC.Robotics.SmartMeeting
     internal static class Global
     {
         public static readonly Dictionary<Skeleton, string> trackedPeople = new Dictionary<Skeleton,string>();
+        public static System.Windows.Controls.TextBlock StatusBarText;
         public static string personSpeaking;
         public static System.IO.Stream audioStream;
-        public static readonly int positionError = 10;
+        public static readonly int positionError = 8;
     }
 }

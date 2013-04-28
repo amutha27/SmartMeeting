@@ -112,7 +112,7 @@ namespace USC.Robotics.SmartMeeting
         private void AudioSourceSoundSourceAngleChanged(object sender, SoundSourceAngleChangedEventArgs e)
         {
              //Rotate gradient to match angle
-            if (this.sourceRotation.Angle != -e.Angle)
+            if (this.sourceRotation.Angle != -e.Angle && e.ConfidenceLevel>0.9)
             {
                 sourceRotation.Angle = -e.Angle;
                 beamRotation.Angle = sourceRotation.Angle;
